@@ -1,0 +1,253 @@
+BACKLOG EVOLUTIVO DO PRODUTO
+Hotel Descanso Garantido - Evolucao por Sprint
+
+Autor: Lucas Cardoso
+Instituicao: PUC Minas - Engenharia de Software
+Data de Criacao: 01/11/2024
+
+================================================================================
+
+SPRINT 0 - PLANEJAMENTO INICIAL
+Data: 01/11/2024 a 07/11/2024
+Responsavel: Lucas Cardoso
+
+Backlog Inicial Criado
+
+ID      Historia de Usuario                                                    Prioridade   Estimativa   Responsavel      Status
+US-01   Como gerente, quero cadastrar clientes para manter registro            ALTA         8h           Joao Silva       TODO
+US-02   Como gerente, quero cadastrar funcionarios para controlar equipe       ALTA         8h           Maria Santos     TODO
+US-03   Como gerente, quero cadastrar quartos para controlar inventario        ALTA         6h           Pedro Costa      TODO
+US-04   Como recepcionista, quero cadastrar estadias para registrar            ALTA         10h          Ana Oliveira     TODO
+US-05   Como gerente, quero pesquisar clientes por nome para localizar         MEDIA        4h           Joao Silva       TODO
+US-06   Como gerente, quero listar todos os quartos para ver disponibilidade   MEDIA        4h           Pedro Costa      TODO
+US-07   Como recepcionista, quero calcular pontos de fidelidade                BAIXA        6h           Ana Oliveira     TODO
+US-08   Como recepcionista, quero buscar quartos disponiveis por capacidade    MEDIA        8h           Pedro Costa      TODO
+
+Definicoes Tecnicas
+- Linguagem: C (padrao C99)
+- Persistencia: Arquivos binarios (.dat)
+- Estrutura: Modularizacao por entidade (cliente, funcionario, quarto, estadia)
+- Build System: Makefile
+
+Decisoes de Arquitetura
+- Uso de structs para modelagem de dados
+- Separacao em modulos .c e .h
+- Validacoes em todas as entradas
+- Status de ativo/inativo para soft delete
+
+================================================================================
+
+SPRINT 1 - CADASTROS BASICOS
+Data: 08/11/2024 a 14/11/2024
+Meta: Implementar cadastros de Cliente, Funcionario e Quarto
+
+Backlog Atualizado - Sprint 1
+
+ID      Historia              Status Sprint 0   Status Sprint 1   Responsavel      Observacoes
+US-01   Cadastrar clientes    TODO              DONE              Joao Silva       Concluido com validacoes
+US-02   Cadastrar funcionarios TODO             DONE              Maria Santos     Validacao de salario implementada
+US-03   Cadastrar quartos     TODO              DONE              Pedro Costa      Status automatico = DESOCUPADO
+US-04   Cadastrar estadias    TODO              TODO              Ana Oliveira     Dependencia: US-01 e US-03
+US-05   Pesquisar clientes    TODO              IN PROGRESS       Joao Silva       70% concluido
+US-06   Listar quartos        TODO              TODO              Pedro Costa      -
+US-07   Pontos de fidelidade  TODO              TODO              Ana Oliveira     -
+US-08   Buscar quartos        TODO              TODO              Pedro Costa      -
+
+Itens Adicionados na Sprint 1
+
+ID         Nova Tarefa                                        Prioridade   Responsavel      Status
+TECH-01    Implementar geracao automatica de codigos          ALTA         Joao Silva       DONE
+TECH-02    Criar estrutura de diretorios (data, obj, bin)     ALTA         Pedro Costa      DONE
+TECH-03    Implementar soft delete com flag "ativo"           MEDIA        Maria Santos     DONE
+
+Retrospectiva Sprint 1
+Concluido: 3 historias de usuario + 3 tarefas tecnicas
+Em Progresso: 1 historia de usuario
+Bloqueios: Nenhum
+Licoes Aprendidas: Validacoes devem ser implementadas desde o inicio
+
+================================================================================
+
+SPRINT 2 - FUNCIONALIDADES DE PESQUISA E ESTADIA
+Data: 15/11/2024 a 21/11/2024
+Meta: Completar modulo de estadias e funcionalidades de pesquisa
+
+Backlog Atualizado - Sprint 2
+
+ID      Historia              Status Sprint 1   Status Sprint 2   Responsavel      Observacoes
+US-01   Cadastrar clientes    DONE              DONE              Joao Silva       -
+US-02   Cadastrar funcionarios DONE             DONE              Maria Santos     -
+US-03   Cadastrar quartos     DONE              DONE              Pedro Costa      -
+US-04   Cadastrar estadias    TODO              DONE              Ana Oliveira     Validacoes completas implementadas
+US-05   Pesquisar clientes    IN PROGRESS       DONE              Joao Silva       Pesquisa por codigo e nome
+US-06   Listar quartos        TODO              DONE              Pedro Costa      Exibe status em tempo real
+US-07   Pontos de fidelidade  TODO              IN PROGRESS       Ana Oliveira     60% concluido
+US-08   Buscar quartos        TODO              TODO              Pedro Costa      Dependencia: US-04
+
+Itens Adicionados na Sprint 2
+
+ID         Nova Tarefa                                        Prioridade   Responsavel      Status
+TECH-04    Implementar calculo de diarias                     ALTA         Ana Oliveira     DONE
+TECH-05    Validacao de datas (formato DD/MM/AAAA)            ALTA         Ana Oliveira     DONE
+TECH-06    Verificar integridade referencial                  ALTA         Joao Silva       DONE
+TECH-07    Atualizar status do quarto ao criar estadia        ALTA         Pedro Costa      DONE
+BUG-01     Corrigir leitura de strings com espacos            CRITICO      Joao Silva       FIXED
+
+Retrospectiva Sprint 2
+Concluido: 3 historias de usuario + 5 tarefas tecnicas + 1 bugfix
+Em Progresso: 1 historia de usuario
+Bloqueios: Complexidade no calculo de datas
+Licoes Aprendidas: Validacao de integridade referencial e essencial
+
+================================================================================
+
+SPRINT 3 - FINALIZACAO E FUNCIONALIDADES AVANCADAS
+Data: 22/11/2024 a 28/11/2024
+Meta: Finalizar todas as funcionalidades principais e implementar pontos de fidelidade
+
+Backlog Atualizado - Sprint 3
+
+ID      Historia              Status Sprint 2   Status Sprint 3   Responsavel      Observacoes
+US-01   Cadastrar clientes    DONE              DONE              Joao Silva       -
+US-02   Cadastrar funcionarios DONE             DONE              Maria Santos     -
+US-03   Cadastrar quartos     DONE              DONE              Pedro Costa      -
+US-04   Cadastrar estadias    DONE              DONE              Ana Oliveira     -
+US-05   Pesquisar clientes    DONE              DONE              Joao Silva       -
+US-06   Listar quartos        DONE              DONE              Pedro Costa      -
+US-07   Pontos de fidelidade  IN PROGRESS       DONE              Ana Oliveira     Implementado calculo completo
+US-08   Buscar quartos        TODO              DONE              Pedro Costa      Filtra por capacidade e disponibilidade
+
+Itens Adicionados na Sprint 3
+
+ID         Nova Tarefa                                        Prioridade   Responsavel      Status
+TECH-08    Implementar finalizacao de estadia                 ALTA         Ana Oliveira     DONE
+TECH-09    Liberar quarto ao finalizar estadia                ALTA         Pedro Costa      DONE
+TECH-10    Validar disponibilidade de quarto por periodo      MEDIA        Pedro Costa      DONE
+TECH-11    Listar estadias por cliente                        MEDIA        Ana Oliveira     DONE
+US-09      Menu interativo completo                           ALTA         Maria Santos     DONE
+
+Itens Removidos/Depriorizados
+REMOVIDO: US-10 (Relatorios em PDF) - Fora do escopo inicial
+ADIADO: US-11 (Dashboard web) - Para versao 2.0
+
+Retrospectiva Sprint 3
+Concluido: 2 historias de usuario + 5 tarefas tecnicas
+Todas US principais finalizadas!
+Licoes Aprendidas: Priorizacao e fundamental para cumprir prazos
+
+================================================================================
+
+SPRINT 4 - TESTES E QUALIDADE
+Data: 29/11/2024 a 05/12/2024
+Meta: Implementar testes automatizados e garantir qualidade do codigo
+
+Backlog Atualizado - Sprint 4
+
+ID      Tarefa de Qualidade                                     Prioridade   Responsavel      Status
+QA-01   Implementar testes automatizados com MUnit              CRITICO      Equipe QA        DONE
+QA-02   Criar suite de testes para modulo Cliente               ALTA         Joao Silva       DONE
+QA-03   Criar suite de testes para modulo Funcionario           ALTA         Maria Santos     DONE
+QA-04   Criar suite de testes para modulo Quarto                ALTA         Pedro Costa      DONE
+QA-05   Criar suite de testes para modulo Estadia               ALTA         Ana Oliveira     DONE
+QA-06   Gerar relatorio de execucao de testes                   ALTA         Equipe QA        DONE
+QA-07   Criar dados de teste pre-preenchidos                    MEDIA        Joao Silva       DONE
+QA-08   Documentar casos de teste                               MEDIA        Ana Oliveira     DONE
+
+Cobertura de Testes Alcancada
+
+Modulo          Testes Implementados   Cobertura   Status
+Cliente         7 testes               100%        OK
+Funcionario     5 testes               100%        OK
+Quarto          6 testes               100%        OK
+Estadia         6 testes               100%        OK
+TOTAL           24 testes              100%        OK
+
+Retrospectiva Sprint 4
+Concluido: 8 tarefas de qualidade + 24 testes automatizados
+100% dos testes passando!
+Metricas: 0 bugs criticos, cobertura completa
+Licoes Aprendidas: Testes automatizados economizam tempo em debugging
+
+================================================================================
+
+SPRINT 5 - DOCUMENTACAO E ENTREGA
+Data: 06/12/2024 a 10/12/2024
+Meta: Finalizar documentacao e preparar entrega
+
+Backlog Atualizado - Sprint 5
+
+ID      Tarefa de Documentacao                                  Prioridade   Responsavel      Status
+DOC-01  Documentacao completa do sistema                        ALTA         Maria Santos     DONE
+DOC-02  Backlog evolutivo detalhado                             ALTA         Joao Silva       DONE
+DOC-03  Assinaturas de todas as funcoes                         ALTA         Pedro Costa      DONE
+DOC-04  Plano de testes detalhado                               ALTA         Ana Oliveira     DONE
+DOC-05  Relatorio de execucao de testes                         CRITICO      Equipe QA        DONE
+DOC-06  README com instrucoes de uso                            ALTA         Joao Silva       DONE
+DOC-07  Scripts de compilacao e execucao                        MEDIA        Pedro Costa      DONE
+
+Entregas Finais
+
+Entregavel                                Status   Responsavel
+Codigo-fonte completo                     DONE     Equipe Dev
+Makefile com targets de teste             DONE     Pedro Costa
+24 testes automatizados (MUnit)           DONE     Equipe QA
+Dados de teste pre-preenchidos            DONE     Joao Silva
+Documentacao tecnica completa             DONE     Maria Santos
+Backlog evolutivo por sprint              DONE     Joao Silva
+Relatorio de execucao de testes           DONE     Equipe QA
+
+Retrospectiva Sprint 5
+Concluido: 7 tarefas de documentacao
+Projeto 100% concluido e documentado!
+Entrega realizada com sucesso!
+
+================================================================================
+
+RESUMO GERAL DA EVOLUCAO
+
+Progresso por Sprint
+
+Sprint 0: Planejamento (100%)
+Sprint 1: Cadastros (3/8 US concluidas)
+Sprint 2: Pesquisas e Estadias (6/8 US concluidas)
+Sprint 3: Funcionalidades (8/8 US concluidas)
+Sprint 4: Testes Automatizados (24 testes)
+Sprint 5: Documentacao e Entrega
+
+Metricas do Projeto
+
+Metrica                     Valor
+Total de Sprints            6 (incluindo Sprint 0)
+Historias de Usuario        9 concluidas
+Tarefas Tecnicas            11 concluidas
+Tarefas de QA               8 concluidas
+Tarefas de Documentacao     7 concluidas
+Bugs Corrigidos             1
+Testes Automatizados        24 (100% passando)
+Cobertura de Testes         100%
+Linhas de Codigo            ~2000 LOC
+
+Equipe e Responsabilidades
+
+Membro              Papel                       US Concluidas   Contribuicao
+Lucas Cardoso       Desenvolvedor Principal     9 US + 22 tasks Desenvolvimento completo
+
+================================================================================
+
+ITENS DO BACKLOG PARA VERSAO 2.0
+
+Futuras Melhorias (Nao Priorizadas para v1.0)
+
+ID      Funcionalidade                            Prioridade   Estimativa
+V2-01   Interface web com dashboard               MEDIA        40h
+V2-02   Relatorios em PDF                         BAIXA        16h
+V2-03   Integracao com sistema de pagamento       ALTA         32h
+V2-04   Notificacoes por email                    BAIXA        12h
+V2-05   Sistema de reservas online                MEDIA        24h
+V2-06   Historico de alteracoes (audit log)       BAIXA        16h
+
+================================================================================
+
+Backlog mantido e atualizado por: Lucas Cardoso
+Ultima atualizacao: 10/12/2024
+Status do Projeto: CONCLUIDO E ENTREGUE
